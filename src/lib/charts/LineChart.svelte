@@ -18,7 +18,7 @@
       const total = subset.length;
       const survived = subset.filter(d => d.Survived === "1").length;
       const rate = total ? survived / total : 0;
-      return { class: cls, rate: rate };  // fracción 0 a 1
+      return { class: cls, rate: rate }; 
     });
 
     // Escalas para eje X (clases 1-3) y eje Y (tasa 0 a 1)

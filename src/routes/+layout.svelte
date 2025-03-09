@@ -3,5 +3,5 @@
 </script>
 
 <TitanicTheme>
-  <slot />  <!-- el contenido de la página irá aquí -->
+  <slot /> 
 </TitanicTheme>

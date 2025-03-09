@@ -1,18 +1,24 @@
-# Usa la imagen oficial de Node.js
-FROM node:18-alpine
-
-# Establece el directorio de trabajo
+# Etapa de construcción
+FROM node:18-alpine AS builder
 WORKDIR /app
 
-# Copia los archivos del proyecto
+# Copiar dependencias y construir la app
 COPY package.json package-lock.json ./
 RUN npm install
-
-# Copia el resto del código
 COPY . .
+RUN npm run build
 
-# Expone el puerto 5173 (el puerto de Vite)
-EXPOSE 5173
+# Etapa de producción
+FROM node:18-alpine
+WORKDIR /app
 
-# Comando para iniciar la app
-CMD ["npm", "run", "dev", "--", "--host"]
+# Copiar el resultado del build
+COPY --from=builder /app/build /app/build
+COPY --from=builder /app/package.json /app/package.json
+COPY --from=builder /app/node_modules /app/node_modules
+
+# Exponer el puerto 3000 (puedes cambiarlo si lo necesitas)
+EXPOSE 3000
+
+# Comando para ejecutar la aplicación
+CMD ["node", "build"]

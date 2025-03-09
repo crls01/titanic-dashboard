@@ -36,7 +36,7 @@
 </script>
 
 <style>
-/* 🔥 Establecer el fondo de la página */
+/* Fondo página */
 main {
   font-family: 'Segoe UI', sans-serif;
   background: url('/titanic-bg.png') no-repeat center center;
@@ -48,7 +48,7 @@ main {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* 🔥 Fondo oscuro transparente */
+/* Fondo oscuro transparecnte */
 main::before {
   content: "";
   position: absolute;
@@ -56,11 +56,11 @@ main::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* 🔥 Más suave */
+  background: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
 
-/* 🔥 Ajustar tamaño y alineación del título */
+/*Titulo*/
 h1 {
   text-align: center;
   font-size: 2.5rem;
@@ -68,11 +68,11 @@ h1 {
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 1);
 }
 
-/* 📌 Estilo para el contenedor de gráficos */
+/* COntenerdor de gráficos*/
 .charts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 🔥 Fila con 2 columnas */
-  grid-template-rows: repeat(2, 1fr); /* 🔥 2 filas */
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(2, 1fr); 
   gap: 15px;
   justify-content: center;
   align-items: center;
@@ -81,9 +81,9 @@ h1 {
   margin: 0 auto;
 }
 
-/* 📌 Cada gráfico en su propia caja */
+/* Caja de cada gráfico */
 .chart-container {
-  background: rgba(0, 0, 0, 0.5); /* 🔥 Más transparencia */
+  background: rgba(0, 0, 0, 0.5);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -91,10 +91,10 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 400px; /* 🔥 Limitar el tamaño */
+  height: 400px; 
 }
 
-/* 🔥 Mejorar filtros */
+/* Filtros */
 .filters {
   display: flex;
   justify-content: center;
@@ -114,7 +114,7 @@ h1 {
     <Filters bind:selectedClass bind:selectedSex bind:selectedSurvived />
   </div>
 
-  <!-- 📌 Contenedor 2x2 con gráficos bien alineados -->
+  
   {#if filteredData.length > 0}
     <div class="charts">
       <div class="chart-container"><BarChart data={filteredData} /></div>

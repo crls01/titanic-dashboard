@@ -13,7 +13,7 @@
       .attr('height', height);
     svg.selectAll('*').remove();
 
-    // Calcular conteos para sobrevivió/no sobrevivió
+    // Calcular sobrevivió/no sobrevivió
     const survivedCount = data.filter(d => d.Survived === "1").length;
     const notSurvivedCount = data.filter(d => d.Survived === "0").length;
     const dataset = [ { label: "No", value: notSurvivedCount }, { label: "Yes", value: survivedCount } ];
@@ -23,11 +23,11 @@
     const arcs = pie(dataset);
     const arcGenerator = d3.arc().innerRadius(0).outerRadius(radius);
 
-    // Grupo central traslacional (para centrar el pastel)
+    // Central la PIechart
     const g = svg.append('g')
       .attr('transform', `translate(${width/2}, ${height/2})`);
 
-    // Dibujar segmentos de pastel
+    // Segmentos del pastel
     g.selectAll('path.slice')
       .data(arcs)
       .enter()
@@ -36,7 +36,7 @@
         .attr('d', arcGenerator)
         .attr('fill', (d, i) => i === 1 ? 'steelblue' : 'orange');
 
-    // Añadir etiquetas de porcentaje al centro de cada porción
+    // Etiquetas de porcentaje
     g.selectAll('text.pie-label')
       .data(arcs)
       .enter()

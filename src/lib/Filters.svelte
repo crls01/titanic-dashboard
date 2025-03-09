@@ -1,10 +1,10 @@
 <script>
-  // Recibimos del padre las variables vinculadas a cada filtro:
+  // Recibimos las vairables vinculadas a cada filtro
   export let selectedClass = "All";
   export let selectedSex = "All";
   export let selectedSurvived = "All";
 
-  // Opciones disponibles para cada filtro:
+  // Opciones para cada filtro
   const classes = ["All", "1", "2", "3"];
   const sexes = ["All", "male", "female"];
   const survivalStates = ["All", "1", "0"]; // "1" = sobrevivió, "0" = no sobrevivió
